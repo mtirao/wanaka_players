@@ -1,0 +1,16 @@
+POST http://localhost:3010/api/wanaka/player HTTP/1.1
+content-type: application/json
+
+{
+    "mobile": "1234567890",
+    "email": "john.doe@example.com",
+    "firstname": "John",
+    "lastname": "Doe",
+    "block": 5,
+    "defence": 5,
+    "spike": 5,
+    "serve": 5,
+    "skills": 5,
+    "position": "Forward",
+    "team": "Team A"
+}
