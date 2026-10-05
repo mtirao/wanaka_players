@@ -1,0 +1,3 @@
+PUT http://localhost:3010/api/wanaka/player/1/spike HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJleHAiOjE3ODg3MTE0MTMsInN1YiI6IjkyNTI1ODQwIn0.EzmMuSvD6HAMlmcmJLhv2jYL9S9e7PNYjiOSU8hKvyA

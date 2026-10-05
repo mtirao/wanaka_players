@@ -12,7 +12,13 @@ import Data.Int (Int32, Int64)
 -- Player
 
 data PlayerDTO = PlayerDTO
-    { mobile :: Text
+    { datebirth :: Text
+    , jersey :: Int64
+    , height :: Text
+    , ercontact :: Text
+    , erphone :: Text
+    , hand :: Text    
+    , mobile :: Text
     , email :: Text
     , firstName :: Text
     , lastName :: Text
@@ -24,11 +30,17 @@ data PlayerDTO = PlayerDTO
     , position :: Text
     , team :: Text
     , id :: Maybe Int64
+    , points :: Maybe Int64
     } deriving (Eq, Show)
-    
 
 instance ToJSON PlayerDTO where
     toJSON PlayerDTO {..} = object [
+            "datebirth" .= datebirth,
+            "jersey" .= jersey,
+            "height" .= height,
+            "ercontact" .= ercontact,
+            "erphone" .= erphone,
+            "hand" .= hand,
             "mobile" .= mobile,
             "email" .= email,
             "firstname" .= firstName,
@@ -40,11 +52,18 @@ instance ToJSON PlayerDTO where
             "skills" .= skills,
             "position" .= position,
             "team" .= team,
-            "id" .= id
+            "id" .= id,
+            "points" .= points
         ]
 
 instance FromJSON PlayerDTO where
-    parseJSON (Object v) = PlayerDTO <$> 
+    parseJSON (Object v) = PlayerDTO <$>    
+        v .: "datebirth" <*>
+        v .: "jersey" <*>
+        v .: "height" <*>
+        v .: "ercontact" <*>
+        v .: "erphone" <*>
+        v .: "hand" <*>
         v .: "mobile" <*>
         v .: "email" <*>
         v .: "firstname" <*>
@@ -56,5 +75,6 @@ instance FromJSON PlayerDTO where
         v .: "skills" <*>
         v .: "position" <*>
         v .: "team" <*>
-        v .:? "id"
+        v .:? "id" <*>
+        v .:? "points"
     parseJSON _ = fail "ProfileDTO expects an object"

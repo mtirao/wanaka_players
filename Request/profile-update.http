@@ -1,0 +1,25 @@
+PUT http://localhost:3010/api/wanaka/player/1 HTTP/1.1
+content-type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJleHAiOjE3OTE1MzIxMTksInN1YiI6IjkyNTI1ODQwIn0.VTxG9VorA9iZgYYI9u0sv83dyrmlbfNXEFQh8etleVI
+
+{
+  "block": 7,
+  "datebirth": "1977-12-01",
+  "defence": 7,
+  "email": "marcos.tirao@icoud.com",
+  "ercontact": "Veronica Leaniz",
+  "erphone": "111111",
+  "firstname": "Agustin",
+  "hand": "right",
+  "height": "179 cm",
+  "id": 1,
+  "jersey": 4,
+  "lastname": "Tirao",
+  "mobile": "675397563",
+  "points": 31,
+  "position": "OPP",
+  "serve": 5,
+  "skills": 885,
+  "spike": 12,
+  "team": "Team A"
+}

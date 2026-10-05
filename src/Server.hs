@@ -28,7 +28,6 @@ import Control.Monad.IO.Class (liftIO)
 import Data.Time.Clock.POSIX (getPOSIXTime)
 
 import Hasql.Connection (Connection)
-import Hasql.Session (QueryError, Session, run)
 import qualified Hasql.Pool as P
 import Hasql.Pool (Pool)
 
@@ -39,6 +38,8 @@ type API = "api" S.:> "wanaka" S.:> "player" S.:> S.Capture "id" Int64 S.:> S.Ge
     S.:<|> "api" S.:> "wanaka" S.:> "player" S.:> S.Get '[S.JSON] [PlayerDTO]
     S.:<|> "api" S.:> "wanaka" S.:> "player" S.:> S.ReqBody '[S.JSON] PlayerDTO S.:> S.Post '[S.JSON] S.NoContent
     S.:<|> "api" S.:> "wanaka" S.:> "player" S.:> S.Capture "id" Int64 S.:> S.Delete '[S.JSON] S.NoContent
+    S.:<|> "api" S.:> "wanaka" S.:> "player" S.:> S.Capture "id" Int64 S.:> S.Capture "skill" Text S.:> S.Put '[S.JSON] S.NoContent
+    S.:<|> "api" S.:> "wanaka" S.:> "player" S.:> S.Capture "id" Int64 S.:> S.Patch '[S.JSON] S.NoContent
     S.:<|> "api" S.:> "wanaka" S.:> "player" S.:> S.Capture "id" Int64 S.:> S.ReqBody '[S.JSON] PlayerDTO S.:> S.Put '[S.JSON] S.NoContent
 
 server :: Pool -> S.Server API
@@ -46,7 +47,9 @@ server pool = getProfileHandler pool
         S.:<|> getProfilesHandler pool
         S.:<|> createProfileHandler pool
         S.:<|> deleteProfileHandler pool
-        S.:<|> updateProfileHandler pool
+        S.:<|> updateSkillHandler pool
+        S.:<|> updateSkillsHandler pool
+        S.:<|> updateAllHandler pool
 
 api :: S.Proxy API
 api = S.Proxy

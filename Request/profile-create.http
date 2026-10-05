@@ -1,16 +1,23 @@
 POST http://localhost:3010/api/wanaka/player HTTP/1.1
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJleHAiOjE3OTAwOTM5NDMsInN1YiI6IjkyNTI1ODQwIn0.bhf3-cXZFs99nR-reL9wUgFC-iL_J4T9bCegO_PdCLo
 
 {
-    "mobile": "1234567890",
-    "email": "john.doe@example.com",
-    "firstname": "John",
-    "lastname": "Doe",
-    "block": 5,
-    "defence": 5,
-    "spike": 5,
-    "serve": 5,
-    "skills": 5,
-    "position": "Forward",
-    "team": "Team A"
+  "block": 0,
+  "defence": 0,
+  "email": "marcos.tirao@icloud.com",
+  "firstname": "Marcos",
+  "lastname": "Tirao",
+  "mobile": "+34 (675) 39 75 63",
+  "position": "OPP",
+  "serve": 0,
+  "skills": 0,
+  "spike": 0,
+  "team": "Team Male",
+  "datebirth": "2002-06-14",
+  "jersey": 3,
+  "height": "178 cm",
+  "ercontact": "Veronica Leaniz",
+  "erphone": "+34 (675) 39 75 63",
+  "hand": "right"
 }
